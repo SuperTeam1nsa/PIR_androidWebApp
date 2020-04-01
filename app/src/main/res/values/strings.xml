@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Super Bus INSA</string>
+    <string name="message_successful_connexion">Connexion au service réussie ! :D </string>
+    <string name="message_unsuccessful_connexion">Problème de connexion au service :/  </string>
+    <string name="error_message_no_internet">Vous n\'êtes pas connectés à Internet, réessayez une fois connecté !</string>
+    <string name="URL">http://192.168.43.193:8080/</string>
+    <string name="ip">192.168.43.193</string>
+    <integer name="port">8080</integer>
+    <string name="error_message_no_internet_but_network"> Vous êtes connectés à un réseau sans Internet...Changez de réseau !</string>
+</resources>

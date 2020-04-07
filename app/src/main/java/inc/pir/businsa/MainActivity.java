@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -69,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    /** Show a toast from the web page */
+    @JavascriptInterface
+    public void showToast(String toast) {
+        Toast.makeText(webView.getContext(), toast.replaceAll("<p>","").replaceAll("</p>",""), Toast.LENGTH_LONG).show();
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -3,9 +3,9 @@ package inc.pir.businsa;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.ConsoleMessage;
@@ -15,10 +15,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-import java.net.DatagramSocket;
 import java.net.InetAddress;
 /*
-///TODO : https://www.androidhive.info/2012/07/android-detect-internet-connection-status/
+//https://developer.android.com/guide/webapps/webview 
+// https://www.androidhive.info/2012/07/android-detect-internet-connection-status/
 //reload url if changement de connexion et connected is true
  */
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setAppCacheEnabled(true);
         webSettings.setAppCachePath(getCacheDir().getPath());
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setPluginState(WebSettings.PluginState.ON);
+       // webSettings.setPluginState(WebSettings.PluginState.ON);
         webSettings.setUserAgentString(webSettings.getUserAgentString() + "Super Android web App !");
         webSettings.setDomStorageEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
@@ -92,12 +92,12 @@ public class MainActivity extends AppCompatActivity {
         assert connectivityManager != null;
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
-    public boolean isInternetAvailable() {
+    public void isInternetAvailable() {
         Context ctx =webView.getContext();
         try {
-            ///TODO: test it
+            ///ok
             String ip = ctx.getResources().getString(R.string.ip);
-            int port = ctx.getResources().getInteger(R.integer.port);
+           // int port = ctx.getResources().getInteger(R.integer.port);
             InetAddress ipAddr = InetAddress.getByName("www.google.com");
             boolean c=ipAddr.isReachable(150);
             if(c) {
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(ctx, txt, Toast.LENGTH_LONG).show();
                 }
             }
-            return c;
         } catch (Exception e) {
             Log.d("webClient","baddd"+e.getMessage()+e.getCause()+e.getStackTrace()[1]);
             if(isNetworkAvailable(ctx)) {
@@ -133,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
                 String txt = ctx.getResources().getString(R.string.error_message_no_internet);
                 Toast.makeText(ctx, txt, Toast.LENGTH_LONG).show();
             }
-            return false;
         }
     }
 

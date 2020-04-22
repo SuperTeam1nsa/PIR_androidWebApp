@@ -5,14 +5,14 @@ This repository is a AndroidStudio project of an android application to use more
 
 ## Configuration
 
-This project is not in production yet, meaning there is not a server online to manage the car, just a local node js server to start on your local network ([the node server](https://github.com/SuperTeam1nsa/PIR_website/tree/372a7337931f0c8842771b4be7517a1e7f6cf31c))
+This project is not in production yet, meaning there is not a server online to manage the car, just a local node js server to start on your local network ([the node server](https://github.com/SuperTeam1nsa/PIR_website/tree/372a7337931f0c8842771b4be7517a1e7f6cf31c)).  
 So you need to configure the IP of the server to connect:
 ### 1. With Android Studio:
 *  Open the project in Android Studio
 *  edit file `strings.xml` in `app/src/main/res/values` with the good ip/URL/port
     
 
-![Android Studio view](https://github.com/SuperTeam1nsa/PIR_androidWebApp/help/main_config_file.jpg)
+![Android Studio view](help/main_config_file.JPG)
 
 ### 2. With ApkTool:  
  Alternatively, if do not want to use android studio, you can use apktools and sign the application (if the app is already installed, you will have to uninstall it, as the signature will be different):  
